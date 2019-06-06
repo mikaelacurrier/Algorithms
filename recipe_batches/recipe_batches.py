@@ -3,7 +3,7 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  batches = 100000000
+  batches = math.inf
   if len(recipe) > len(ingredients):
     return 0
   for i in recipe:
