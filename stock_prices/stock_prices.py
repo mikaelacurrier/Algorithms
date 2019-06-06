@@ -1,9 +1,22 @@
 #!/usr/bin/python
 
 import argparse
+import math
 
 def find_max_profit(prices):
-  pass
+  max_profit = -math.inf
+
+  for idx, price in enumerate(prices):
+    future = prices[idx+1:]
+    if future:
+      max_price = max(future)
+      current = max_price - price
+
+      if current > max_profit:
+        max_profit = current
+
+  return max_profit
+    
 
 
 if __name__ == '__main__':
@@ -13,3 +26,5 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   print("A profit of ${profit} can be made from the stock prices {prices}.".format(profit=find_max_profit(args.integers), prices=args.integers))
+
+  
